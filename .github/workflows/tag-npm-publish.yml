@@ -5,7 +5,7 @@ jobs:
     name: Tag release based on CHANGELOG
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
         with:
           token: ${{secrets.GIT_TOKEN}}
           fetch-depth: 0
