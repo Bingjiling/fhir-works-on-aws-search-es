@@ -2,7 +2,9 @@
 
 ## Purpose
 
+
 Please visit [fhir-works-on-aws-deployment](https://github.com/awslabs/fhir-works-on-aws-deployment) for overall vision of the project and for more context.
+
 
 This package is an implementation of the search interface from the [FHIR Works interface](https://github.com/awslabs/fhir-works-on-aws-interface). It queries Elasticsearch to find the results.  To use and deploy this component (with the other 'out of the box' components) please follow the overall [README](https://github.com/awslabs/fhir-works-on-aws-deployment)
 
