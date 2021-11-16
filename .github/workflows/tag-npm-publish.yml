@@ -3,6 +3,7 @@ on: [workflow_dispatch]
 jobs:
   tag-release:
     name: Tag release based on CHANGELOG
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
         with:
