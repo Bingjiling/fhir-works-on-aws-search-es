@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{secrets.MERGE_TOKEN}}
+          token: ${{secrets.GIT_TOKEN}}
           fetch-depth: 0
       - name: Use Node.js
         uses: actions/setup-node@v1
