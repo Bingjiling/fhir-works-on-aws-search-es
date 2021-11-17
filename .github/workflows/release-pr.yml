@@ -27,4 +27,4 @@ jobs:
         with:
           base: develop
           branch: dev-release
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{secrets.PAT}}
