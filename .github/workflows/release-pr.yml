@@ -23,7 +23,7 @@ jobs:
           git config user.email "aws-chamonix-dev@amazon.com"
           git checkout -b dev-release
           yarn run standard-version
-          [[ "$(git log -1 --pretty=format:"%s")" == chore(release):* ]] || git push --set-upstream origin dev-release
+          [[ $(git log -1 --pretty=format:"%s") == chore(release):* ]] || git push --set-upstream origin dev-release
       - name: Create Pull Request to merge to mainline
         uses: repo-sync/pull-request@v2
         with:
