@@ -17,15 +17,16 @@ jobs:
         with:
           node-version: 14
       - name: push change to branch dev-release
+        if: ${{ !startsWith(github.event.head_commit.message, 'chore') }}
         run: |
           yarn install
           git config user.name "github-action-automation"
           git config user.email "aws-chamonix-dev@amazon.com"
           git checkout -b dev-release
           yarn run standard-version
-          [[ $(git log -1 --pretty=format:"%s") != chore* ]] && echo do-something
-          [[ $(git log -1 --pretty=format:"%s") != chore* ]] && git push --set-upstream origin dev-release
+          git push --set-upstream origin dev-release
       - name: Create Pull Request to merge to mainline
+        if: ${{ !startsWith(github.event.head_commit.message, 'chore') }}
         uses: repo-sync/pull-request@v2
         with:
           source_branch: dev-release
