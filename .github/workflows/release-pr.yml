@@ -23,7 +23,9 @@ jobs:
           git config user.email "aws-chamonix-dev@amazon.com"
           yarn run standard-version
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: repo-sync/pull-request@v2
         with:
-          base: develop
-          branch: dev-release
+          source_branch: dev-release
+          destination_branch: develop
+          pr_draft: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
