@@ -7,6 +7,7 @@ jobs:
   tag-release:
     name: Create release PR
     runs-on: ubuntu-18.04
+    if: ${{ !startsWith(github.event.head_commit.message, 'chore') }}
     steps:
       - uses: actions/checkout@v2.3.4
         with:
@@ -17,7 +18,6 @@ jobs:
         with:
           node-version: 14
       - name: push change to branch dev-release
-        if: ${{ !startsWith(github.event.head_commit.message, 'chore') }}
         run: |
           yarn install
           git config user.name "github-action-automation"
@@ -26,7 +26,6 @@ jobs:
           yarn run standard-version
           git push --set-upstream origin dev-release
       - name: Create Pull Request to merge to mainline
-        if: ${{ !startsWith(github.event.head_commit.message, 'chore') }}
         uses: repo-sync/pull-request@v2
         with:
           source_branch: dev-release
