@@ -17,5 +17,6 @@ jobs:
         run: |
           yarn --frozen-lockfile
           yarn run release
-          git tag v$(jq '.version' -r package.json)
+          NEW_VERSION=v$(jq '.version' -r package.json)
+          git ls-remote --exit-code --tags origin $NEW_VERSION || git tag $NEW_VERSION
           git push origin --tags
