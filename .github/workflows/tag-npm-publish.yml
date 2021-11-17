@@ -20,3 +20,6 @@ jobs:
           NEW_VERSION=v$(jq '.version' -r package.json)
           git ls-remote --exit-code --tags origin $NEW_VERSION || git tag $NEW_VERSION
           git push origin --tags
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
