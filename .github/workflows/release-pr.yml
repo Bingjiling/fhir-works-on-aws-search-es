@@ -26,13 +26,14 @@ jobs:
           yarn install
           git config user.name "github-action-automation"
           git config user.email "aws-chamonix-dev@amazon.com"
-          git checkout -b dev-release-${{ github.event.id }}
+          EVENT_ID=${{ github.event.id }}
+          git checkout -b "dev-release-${EVENT_ID}"
           yarn run standard-version
-          git push --set-upstream origin dev-release-${{ github.event.id }}
+          git push --set-upstream origin "dev-release-${EVENT_ID}"
       - name: Create Pull Request to merge to mainline
         uses: repo-sync/pull-request@v2
         with:
-          source_branch: dev-release-${{ github.event.id }}
+          source_branch: "dev-release-${EVENT_ID}"
           destination_branch: mainline
           pr_draft: false
           pr_reviewer: "awslabs/aws-chamonix-fhir"
