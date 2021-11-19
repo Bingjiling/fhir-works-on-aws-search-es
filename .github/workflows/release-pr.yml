@@ -26,6 +26,7 @@ jobs:
           yarn install
           git config user.name "github-action-automation"
           git config user.email "aws-chamonix-dev@amazon.com"
+          echo ${{github.event}}
           EVENT_ID=${{ github.event.id }}
           git checkout -b "dev-release-${EVENT_ID}"
           yarn run standard-version
