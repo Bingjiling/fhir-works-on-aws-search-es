@@ -7,11 +7,11 @@ jobs:
   tag-release:
     name: Create release PR
     runs-on: ubuntu-18.04
-    if: >
-      ${{ (startsWith(github.event.head_commit.message, 'feat')) ||
-      (startsWith(github.event.head_commit.message, 'fix')) ||
-      (contains(github.event.head_commit.message, 'BREAKING_CHANGE')) ||
-      (contains(github.event.head_commit.message, '!')) }}
+    if: |
+      startsWith(github.event.head_commit.message, 'feat') ||
+      startsWith(github.event.head_commit.message, 'fix') ||
+      contains(github.event.head_commit.message, 'BREAKING_CHANGE') ||
+      contains(github.event.head_commit.message, '!')
     steps:
       - uses: actions/checkout@v2.3.4
         with:
@@ -23,6 +23,7 @@ jobs:
           node-version: 14
       - name: push change to branch dev-release
         run: |
+          echo ${{github.event.head_commit.message}}
           yarn install
           git config user.name "github-action-automation"
           git config user.email "aws-chamonix-dev@amazon.com"
