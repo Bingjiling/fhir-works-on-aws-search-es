@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.9.2](https://github.com/awslabs/fhir-works-on-aws-search-es/compare/v3.9.1...v3.9.2) (2021-11-22)
+
+
+### Bug Fixes
+
+* try trigeering workflow ([0df70dc](https://github.com/awslabs/fhir-works-on-aws-search-es/commit/0df70dcdda62ae246e90ed0da324216b553d91d7))
+
 ### [3.9.1](https://github.com/awslabs/fhir-works-on-aws-search-es/compare/v3.9.0...v3.9.1) (2021-11-12)
 
 
